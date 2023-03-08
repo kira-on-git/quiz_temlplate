@@ -21,14 +21,24 @@ class ReviewScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBG,
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () => Get.toNamed(AppRouts.secondRoute),
-            icon: const Icon(Icons.arrow_back_ios)),
-        automaticallyImplyLeading: true,
-        title: const Text("Quiz"),
+        //DELETE BACK ARROW
+        automaticallyImplyLeading: false,
+        // leading: IconButton(
+        //     onPressed: () => Get.toNamed(AppRouts.secondRoute),
+        //     icon: const Icon(Icons.arrow_back_ios)),
+        title: const Text("YOUR ANSWERS"),
         centerTitle: true,
         backgroundColor: kGold,
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: kGold,
+        foregroundColor: kWhite,
+        onPressed: () => Get.toNamed(AppRouts.secondRoute),
+        // icon: Icon(Icons.add),
+        label: const Text('REPEAD QUIZ'),
+        // extendedIconLabelSpacing: 0.05,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: const Center(
         /***********************/
         child: ConstrainedBoxExample(),

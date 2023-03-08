@@ -12,25 +12,37 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // AppController qnController = Get.put(AppController());
-
+    double scaleHeight = MediaQuery.of(context).size.height / 10;
+    double scaleWidth = MediaQuery.of(context).size.width / 20;
     return Scaffold(
       backgroundColor: kBG,
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () => Get.toNamed(AppRouts.secondRoute),
-            icon: const Icon(Icons.arrow_back_ios)),
-        automaticallyImplyLeading: true,
-        title: const Text("Quiz"),
+        // leading: IconButton(
+        //     onPressed: () => Get.toNamed(AppRouts.secondRoute),
+        //     icon: const Icon(Icons.arrow_back_ios)),
+        //DELETE BACK ARROW
+        automaticallyImplyLeading: false,
+        title: const Text("QUIZ RESULT"),
         centerTitle: true,
         backgroundColor: kGold,
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: kGold,
+        foregroundColor: kWhite,
+        onPressed: () => Get.toNamed(AppRouts.reviewRoute),
+        // icon: Icon(Icons.add),
+        label: const Text('REVIEW ANSWERS'),
+        // extendedIconLabelSpacing: 0.05,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SafeArea(
+        // maintainBottomViewPadding: true,
         child: Center(
-          heightFactor: 1,
+          heightFactor: 1.3,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
+            padding: const EdgeInsets.symmetric(vertical: 0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.min,
               children: [
                 /*** IMAGE ***/
@@ -39,64 +51,47 @@ class ResultScreen extends StatelessWidget {
                   height: 100,
                   'assets/svg/diamond.svg',
                 ),
-                const Spacer(
-                  flex: 4,
-                ),
-                ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxHeight: 100,
-                    minHeight: 25,
-                    maxWidth: 450,
-                    minWidth: 150,
-                  ),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: kGold),
-                      borderRadius: BorderRadius.circular(20.0),
+/********CARD******/
+                Padding(
+                  padding: EdgeInsets.only(top: 1 * scaleHeight),
+                  // top: MediaQuery.of(context).size.height / 10),
+                  // padding: const EdgeInsets.only(top: 10),
+                  child: SizedBox(
+                    width: scaleWidth * 12,
+                    height: scaleHeight * 2.2,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(color: kGold),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            /*** CARD TITLE ***/
+                            Text(
+                              "your score:",
+                              style: TextStyle(
+                                color: kGold,
+                                fontSize: scaleWidth * 1.5,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            /*** SCORE ***/
+                            Text(
+                              textScaleFactor:
+                                  ScaleSize.textScaleFactor(context),
+                              "8 / 10",
+                              style: TextStyle(
+                                color: kSmoky,
+                                fontSize: scaleWidth * 1.4,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ]),
                     ),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          /*** CARD TITLE ***/
-                          Text(
-                            "your score:",
-                            textScaleFactor: ScaleSize.textScaleFactor(context),
-                            style: const TextStyle(
-                              color: kGold,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          /*** SCORE ***/
-                          Text(
-                            textScaleFactor: ScaleSize.textScaleFactor(context),
-                            "8 / 10",
-                            style: const TextStyle(
-                              color: kSmoky,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ]),
                   ),
                 ),
-                /*** BUTTON ***/
-                const Spacer(
-                  flex: 8,
-                ),
-                ElevatedButton(
-                  onPressed: () => Get.toNamed(AppRouts.reviewRoute),
-                  clipBehavior: Clip.none,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: kGold,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 14, vertical: 16),
-                    minimumSize: const Size(100, 40),
-                    elevation: 0,
-                  ),
-                  child: const Text("Review Answers"),
-                ),
-                const Spacer(flex: 8)
+/********CARD******/
               ],
             ),
           ),
