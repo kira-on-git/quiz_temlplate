@@ -1,9 +1,16 @@
 //second_screen.dart
 
+// import '../app_routs.dart';
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
+
+import '../constants.dart';
+import '../layout_templats/alignment.dart';
+import '../layout_templats/madiaquery.dart';
+import 'package:get/get.dart';
 // import 'package:quiz_temlplate/app_controller.dart';
-// import 'package:quiz_temlplate/app_routs.dart';
+import 'package:quiz_temlplate/app_routs.dart';
+
+import '../layout_templats/sizing.dart';
 // import 'package:quiz_temlplate/constants.dart';
 
 class ReviewScreen extends StatelessWidget {
@@ -12,27 +19,34 @@ class ReviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: TextButton(
-          child: const Text('BUCH Klick'),
-          onPressed: () => Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => Scaffold(
-                appBar: AppBar(
-                  title: const Text('BUCH Detail'),
-                ),
-                body: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text('Erste Zeile'),
-                    Text('Zweite Zeile'),
-                    Text('Dritte Zeile'),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
+      backgroundColor: kBG,
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Get.toNamed(AppRouts.secondRoute),
+            icon: const Icon(Icons.arrow_back_ios)),
+        automaticallyImplyLeading: true,
+        title: const Text("Quiz"),
+        centerTitle: true,
+        backgroundColor: kGold,
+      ),
+      body: const Center(
+        /***********************/
+        child: ConstrainedBoxExample(),
+        /***********************/
+        // child: TextButton(
+        //   child: const Text('Klick'),
+        //   onPressed: () => Navigator.of(context).push(
+        //     MaterialPageRoute(
+        //       builder: (context) => Scaffold(
+        //         appBar: AppBar(
+        //           title: const Text('Detail'),
+        //         ),
+        //         /********* */
+        //         body: const CenterExample(),
+        //       ),
+        //     ),
+        //   ),
+        // ),
       ),
     );
   }

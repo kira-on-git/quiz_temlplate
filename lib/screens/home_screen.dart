@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quiz_temlplate/app_controller.dart';
 import 'package:quiz_temlplate/app_routs.dart';
 import 'package:quiz_temlplate/constants.dart';
 
@@ -31,10 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SafeArea(
         child: Column(
-          textDirection: TextDirection.rtl,
-          verticalDirection: VerticalDirection.down,
           mainAxisSize: MainAxisSize.min,
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             /*** TITLE ***/
             Text(
@@ -44,15 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
               style: const TextStyle(
                   fontSize: 20, fontWeight: FontWeight.w400, color: kGold),
             ),
-            // ConstrainedBox(
-            //   constraints: const BoxConstraints(
-            //     maxWidth: 800.0,
-            //     maxHeight: 200.0,
-            //     minWidth: 180.0,
-            //     minHeight: 100.0,
-            //   ),
-            // child:
-
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -84,23 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
             /****** BUTTON *****/
             InkWell(
                 highlightColor: kGold,
-
-                // padding: EdgeInsets.symmetric(vertical: 14),
-                // // clipBehavior: Clip.antiAlias,
-                // color: kGold,
-                // textColor: kWhite,
-                // style: ElevatedButton.styleFrom(
-                //   padding: const EdgeInsets.symmetric(vertical: 12.0),
-                //   textStyle: const TextStyle(fontSize: 18),
-                //   backgroundColor: kGold,
-                //   minimumSize: const Size.fromHeight(40),
-                // ),
                 child: Container(
                   color: kGold,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
                         Text(
                           "Start Quiz",
