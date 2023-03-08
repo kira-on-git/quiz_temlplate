@@ -29,33 +29,27 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: kGold,
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            /*** TITLE ***/
-            Text(
-              'Grundlagen der Programmierung',
-              // textAlign: TextAlign.center,
-              textScaleFactor: ScaleSize.textScaleFactor(context),
-              style: const TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.w400, color: kGold),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  /******* INTRO TEXT */
-                  Text(
-                    'intro.subtitle',
-                    style: const TextStyle(color: kGold, fontSize: 10),
-                    // Theme.of(context).textTheme.titleMedium,
-                    // textAlign: TextAlign.center,
-                    textScaleFactor: ScaleSize.textScaleFactor(context),
-                  ),
-                  /*** TEXT ***/
-                  Text(
+        child: Center(
+          heightFactor: 1,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//               mainAxisSize: MainAxisSize.min,
+              children: [
+                /*** TITLE ***/
+                Text(
+                  'Grundlagen der Programmierung',
+                  textAlign: TextAlign.center,
+                  textScaleFactor: ScaleSize.textScaleFactor(context),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.w400, color: kGold),
+                ),
+
+                /*** TEXT ***/
+                Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Text(
                     "The Flutter app developers at FlutterDevs have decades of industry experience under a single roof,"
                     " and this empowers us to serve you with excellence.SIMA",
                     style: const TextStyle(
@@ -63,44 +57,42 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontSize: 14.0,
                         fontWeight: FontWeight.w200),
                     textScaleFactor: ScaleSize.textScaleFactor(context),
-                  )
-                ],
-              ),
-            ),
-            // ),
-
-            /****** BUTTON *****/
-            InkWell(
-                highlightColor: kGold,
-                child: Container(
-                  color: kGold,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Text(
-                          "Start Quiz",
-                          style: TextStyle(
-                              color: kWhite,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 0.6),
-                        ),
-                        Icon(
-                          Icons.arrow_right_alt,
-                          color: kWhite,
-                          size: 36,
-                        )
-                      ],
-                    ),
+                    textAlign: TextAlign.justify,
                   ),
                 ),
-                onTap: () {
-                  //ссылка на страницу
-                  Get.toNamed(AppRouts.secondRoute);
-                }),
-          ],
+                /****** BUTTON *****/
+                InkWell(
+                    highlightColor: kGold,
+                    child: Container(
+                      color: kGold,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: const [
+                            Text(
+                              "Start Quiz",
+                              style: TextStyle(
+                                  color: kWhite,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.6),
+                            ),
+                            Icon(
+                              Icons.arrow_right_alt,
+                              color: kWhite,
+                              size: 36,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      Get.toNamed(AppRouts.secondRoute);
+                    }),
+              ],
+            ),
+          ),
         ),
       ),
     );
