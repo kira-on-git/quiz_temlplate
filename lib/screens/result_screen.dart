@@ -16,84 +16,130 @@ class ResultScreen extends StatelessWidget {
     double scaleWidth = MediaQuery.of(context).size.width / 20;
     return Scaffold(
       backgroundColor: kBG,
-      appBar: AppBar(
-        // leading: IconButton(
-        //     onPressed: () => Get.toNamed(AppRouts.secondRoute),
-        //     icon: const Icon(Icons.arrow_back_ios)),
-        //DELETE BACK ARROW
-        automaticallyImplyLeading: false,
-        title: const Text("QUIZ RESULT"),
-        centerTitle: true,
-        backgroundColor: kGold,
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: kGold,
-        foregroundColor: kWhite,
-        onPressed: () => Get.toNamed(AppRouts.reviewRoute),
-        // icon: Icon(Icons.add),
-        label: const Text('REVIEW ANSWERS'),
-        // extendedIconLabelSpacing: 0.05,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      body: SafeArea(
-        // maintainBottomViewPadding: true,
-        child: Center(
-          heightFactor: 1.3,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0),
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                /*** IMAGE ***/
-                SvgPicture.asset(
-                  width: 100,
-                  height: 100,
-                  'assets/svg/diamond.svg',
-                ),
+      // appBar: AppBar(
+      //   leading: IconButton(
+      //       onPressed: () => Get.toNamed(AppRouts.reviewRoute),
+      //       icon: const Icon(Icons.arrow_back_ios)),
+      //   //DELETE BACK ARROW
+      //   automaticallyImplyLeading: false,
+      //   // title: const Text("review answers"),
+      //   // centerTitle: true,
+      //   backgroundColor: kGold,
+      // ),
+      // floatingActionButton: FloatingActionButton.extended(
+      //   backgroundColor: kGold,
+      //   foregroundColor: kWhite,
+      //   onPressed: () => Get.toNamed(AppRouts.reviewRoute),
+      //   // icon: Icon(Icons.add),
+      //   label: const Text('REVIEW ANSWERS'),
+      //   // extendedIconLabelSpacing: 0.05,
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      body: Center(
+        heightFactor: 1,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // mainAxisSize: MainAxisSize.min,
+            children: [
+              /*** IMAGE ***/
+              SvgPicture.asset(
+                width: 100,
+                height: 100,
+                'assets/svg/diamond.svg',
+              ),
 /********CARD******/
-                Padding(
-                  padding: EdgeInsets.only(top: 1 * scaleHeight),
-                  // top: MediaQuery.of(context).size.height / 10),
-                  // padding: const EdgeInsets.only(top: 10),
-                  child: SizedBox(
-                    width: scaleWidth * 12,
-                    height: scaleHeight * 2.2,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(color: kGold),
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            /*** CARD TITLE ***/
-                            Text(
-                              "your score:",
-                              style: TextStyle(
-                                color: kGold,
-                                fontSize: scaleWidth * 1.5,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            /*** SCORE ***/
-                            Text(
-                              textScaleFactor:
-                                  ScaleSize.textScaleFactor(context),
-                              "8 / 10",
-                              style: TextStyle(
-                                color: kSmoky,
-                                fontSize: scaleWidth * 1.4,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ]),
+              SizedBox(
+                width: 8 * scaleWidth,
+                height: 1.5 * scaleHeight,
+                // width: 160,
+                // height: 100,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(color: kGold),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        /*** CARD TITLE ***/
+                        const Text(
+                          "your score:",
+                          style: TextStyle(
+                            color: kGold,
+                            fontSize: 18, //scaleWidth * 1.3,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        // SizedBox(height: 10),
+                        /*** SCORE ***/
+                        Text(
+                          textScaleFactor: ScaleSize.textScaleFactor(context),
+                          "8 / 10",
+                          style: const TextStyle(
+                            color: kSmoky,
+                            fontSize: 18, //scaleWidth * 1.2,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ]),
+                ),
+              ),
+
+/********CARD******/
+/**** review answers BUTTON ****/
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 0.1 * scaleHeight, bottom: 0.3 * scaleHeight),
+                child: ElevatedButton(
+                  onPressed: () => Get.toNamed(AppRouts.reviewRoute),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: kBG,
+                    foregroundColor: kWhite,
+                    side: const BorderSide(
+                      color: kGold,
                     ),
                   ),
+                  child: const Text(
+                    'REVIEW ANSWERS',
+                    style: TextStyle(
+                        letterSpacing: 1,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
-/********CARD******/
-              ],
-            ),
+              ),
+              /****** BUTTON *****/
+              InkWell(
+                onTap: () {
+                  //questionController.questions.shuffle();
+                  Get.toNamed(AppRouts.home);
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  color: kGold,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Text(
+                        "Start",
+                        style: TextStyle(
+                            color: kWhite,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 0.6),
+                      ),
+                      Icon(
+                        Icons.arrow_right_alt,
+                        color: kWhite,
+                        size: 36,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

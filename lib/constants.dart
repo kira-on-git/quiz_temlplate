@@ -26,6 +26,7 @@ const kFalse = Color(0xffd00e62);
 const kTrue = Color(0xff0ed085);
 
 // const double kDefaultPadding = 20.0;
+
 //responsive Text
 class ScaleSize {
   static double textScaleFactor(BuildContext context,
@@ -93,3 +94,40 @@ class ScaleSize {
             // const SizedBox(
             //   height: 50,
             // ),
+/**** BUTTON */
+// ElevatedButton(
+//                   onPressed: () => Get.toNamed(AppRouts.reviewRoute),
+//                   style: ElevatedButton.styleFrom(
+//                     backgroundColor: kBG,
+//                     foregroundColor: kWhite,
+//                     side: const BorderSide(
+//                       color: kGold,
+//                     ),
+//                   ),
+//                   child: const Text(
+//                     'REVIEW ANSWERS',
+//                     style: TextStyle(
+//                         letterSpacing: 1,
+//                         fontSize: 10,
+//                         fontWeight: FontWeight.w500),
+//                   ),
+//                 ),
+
+/*** LIST VIEW BUILDER ****/
+// Center(
+//         /***********************/
+//         child: ListView.builder(
+//           itemCount: 10,
+//           itemBuilder: (context, position) {
+//             position += 1;
+//             return Card(
+//               child: Padding(
+//                 padding: const EdgeInsets.all(16.0),
+//                 child: Text(
+//                   position.toString(),
+//                   style: TextStyle(fontSize: 22.0),
+//                 ),
+//               ),
+//             );
+//           },
+//         ),)

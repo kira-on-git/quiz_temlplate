@@ -20,78 +20,87 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // QuestionController questionController = Get.put(QuestionController());
+    double scaleHeight = MediaQuery.of(context).size.height / 10;
+    double scaleWidth = MediaQuery.of(context).size.width / 20;
     return Scaffold(
       backgroundColor: kBG,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text("Quiz"),
-        centerTitle: true,
-        backgroundColor: kGold,
-      ),
-      body: SafeArea(
-        child: Center(
-          heightFactor: 1,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   title: const Text("Test"),
+      //   centerTitle: true,
+      //   backgroundColor: kGold,
+      // ),
+      body: Center(
+        heightFactor: 1,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 60, bottom: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 //               mainAxisSize: MainAxisSize.min,
-              children: [
-                /*** TITLE ***/
-                Text(
+            children: [
+              /*** TITLE ***/
+              Flexible(
+                child: Text(
                   'Grundlagen der Programmierung',
                   textAlign: TextAlign.center,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w400, color: kGold),
+                  style: TextStyle(
+                      fontSize: 0.3 * scaleHeight,
+                      fontWeight: FontWeight.w400,
+                      color: kGold),
                 ),
+              ),
 
-                /*** TEXT ***/
-                Padding(
-                  padding: const EdgeInsets.all(24),
+              /*** TEXT ***/
+              Flexible(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: 20, top: 0, right: 20, bottom: 0.6 * scaleHeight),
                   child: Text(
-                    "The Flutter app developers at FlutterDevs have decades of industry experience under a single roof,"
-                    " and this empowers us to serve you with excellence.SIMA",
-                    style: const TextStyle(
+                    '''HIER ist eine Begrüßung und Beschreibung, wie diesen Test-App zu nutzen.''',
+                    style: TextStyle(
                         color: kWhite,
-                        fontSize: 14.0,
+                        fontSize: 0.24 * scaleHeight,
                         fontWeight: FontWeight.w200),
                     textScaleFactor: ScaleSize.textScaleFactor(context),
-                    textAlign: TextAlign.justify,
+                    // textAlign: TextAlign.justify,
                   ),
                 ),
-                /****** BUTTON *****/
-                InkWell(
-                    highlightColor: kGold,
-                    child: Container(
-                      color: kGold,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: const [
-                            Text(
-                              "Start Quiz",
-                              style: TextStyle(
-                                  color: kWhite,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 0.6),
-                            ),
-                            Icon(
-                              Icons.arrow_right_alt,
-                              color: kWhite,
-                              size: 36,
-                            )
-                          ],
-                        ),
+              ),
+              /****** BUTTON *****/
+              InkWell(
+                // highlightColor: kBG, //onClick
+                // focusColor: kTrue, //???
+                // hoverColor: kGold, //onMauseOver
+                onTap: () {
+                  //questionController.questions.shuffle();
+                  Get.toNamed(AppRouts.quizRoute);
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  color: kGold,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Text(
+                        "Start Test",
+                        style: TextStyle(
+                            color: kWhite,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 0.6),
                       ),
-                    ),
-                    onTap: () {
-                      Get.toNamed(AppRouts.secondRoute);
-                    }),
-              ],
-            ),
+                      Icon(
+                        Icons.arrow_right_alt,
+                        color: kWhite,
+                        size: 36,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

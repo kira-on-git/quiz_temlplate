@@ -7,10 +7,13 @@ import 'package:quiz_temlplate/screens/result_screen.dart';
 import 'package:quiz_temlplate/screens/review_screen.dart';
 import 'package:quiz_temlplate/screens/second_screen.dart';
 
+import 'screens/quiz_screen.dart';
+
 //* named routs */
 class AppRouts {
   static const home = '/home';
   static const secondRoute = '/second_screen';
+  static const quizRoute = '/quiz_screen';
   static const resultRoute = '/result_screen';
   static const reviewRoute = '/review_screen';
 }
@@ -25,6 +28,11 @@ class AppPages {
     GetPage(
       name: AppRouts.secondRoute,
       page: () => const SecondScreen(),
+      binding: AppBindings(),
+    ),
+    GetPage(
+      name: AppRouts.quizRoute,
+      page: () => const QuizScreen(),
       binding: AppBindings(),
     ),
     GetPage(
