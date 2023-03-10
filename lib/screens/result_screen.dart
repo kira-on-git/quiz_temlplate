@@ -16,25 +16,6 @@ class ResultScreen extends StatelessWidget {
     double scaleWidth = MediaQuery.of(context).size.width / 20;
     return Scaffold(
       backgroundColor: kBG,
-      // appBar: AppBar(
-      //   leading: IconButton(
-      //       onPressed: () => Get.toNamed(AppRouts.reviewRoute),
-      //       icon: const Icon(Icons.arrow_back_ios)),
-      //   //DELETE BACK ARROW
-      //   automaticallyImplyLeading: false,
-      //   // title: const Text("review answers"),
-      //   // centerTitle: true,
-      //   backgroundColor: kGold,
-      // ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   backgroundColor: kGold,
-      //   foregroundColor: kWhite,
-      //   onPressed: () => Get.toNamed(AppRouts.reviewRoute),
-      //   // icon: Icon(Icons.add),
-      //   label: const Text('REVIEW ANSWERS'),
-      //   // extendedIconLabelSpacing: 0.05,
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Center(
         heightFactor: 1,
         child: Padding(

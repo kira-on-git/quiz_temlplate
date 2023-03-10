@@ -25,8 +25,6 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // double cardHeight = MediaQuery.of(context).size.height / 10;
-    // double cardWidth = MediaQuery.of(context).size.width / 2;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -36,19 +34,8 @@ class _QuizScreenState extends State<QuizScreen> {
         centerTitle: true,
         backgroundColor: kGold,
       ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   backgroundColor: kGold,
-      //   foregroundColor: kWhite,
-      //   onPressed: () {},
-      //   // controller.nextQuestion,
-      //   // _checkAnswer
-      //   label: const Text('SUBMIT ANSWER'),
-      //   // label: const Text('NEXT QUESTION'),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Center(
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child:
@@ -92,7 +79,6 @@ class _QuizScreenState extends State<QuizScreen> {
                       //   ],
                       // ),
                       ),
-              // Placeholder(),
 
               //  (context, index) => QuestionCard(
               //  question: _questionController.questions[index]),
